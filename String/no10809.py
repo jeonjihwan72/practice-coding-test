@@ -62,3 +62,18 @@
     
 # for i in range(97, 123):
 #     print(alphabat[chr(i)], end=' ')
+
+
+# 리스트를 활용하는 방법
+
+alphabet = [-1 for _ in range(26)]
+
+string = input("글자를 입력: ")
+
+for i in range(0, len(string)):
+    loc = ord(string[i]) - 97
+    if alphabet[loc] == -1:
+        alphabet[loc] = i
+
+for i in range(0, 26):
+    print(alphabet[i], end=' ')
