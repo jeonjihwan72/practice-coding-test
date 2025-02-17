@@ -26,3 +26,44 @@
 '''
 출력을 요구하는 명령이 주어질 때마다 명령의 결과를 한 줄에 하나씩 출력한다.
 '''
+
+N = int(input("N: "))
+
+stack = []
+top = -1
+
+for _ in range(N):
+   command_line = input().split()
+   command = int(command_line[0])
+   if command == 1:
+      stack.append(int(command_line[1]))
+      top += 1
+      print(stack)
+      print("================")
+   elif command == 2:
+      if top == -1:
+         print(-1)
+         print("================")
+      else:
+         data = stack[top]
+         stack.remove(stack[top])
+         print(data)
+         print("================")
+         top -= 1
+   elif command == 3:
+      print(len(stack))
+      print("================")
+   elif command == 4:
+      if len(stack) == 0:
+         print(1)
+         print("================")
+      else:
+         print(0)
+         print("================")
+   elif command == 5:
+      if top == -1:
+         print(-1)
+         print("================")
+      else:
+         print(stack[top])
+         print("================")
