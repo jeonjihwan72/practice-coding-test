@@ -1,14 +1,86 @@
 # 문제 
 '''
+정수를 저장하는 큐를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.
 
+명령은 총 여섯 가지이다.
+
+. push X: 정수 X를 큐에 넣는 연산이다.
+. pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다.
+       만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+. size: 큐에 들어있는 정수의 개수를 출력한다.
+. empty: 큐가 비어있으면 1, 아니면 0을 출력한다.
+. front: 큐의 가장 앞에 있는 정수를 출력한다.
+         만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+. back: 큐의 가장 뒤에 있는 정수를 출력한다.
+        만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 '''
 
 # 입력
 '''
-
+첫째 줄에 주어지는 명령의 수 N(1 <= N <= 2,000,000)이 주어진다.
+둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다.
+주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다.
+문제에 나와있지 않은 명령이 주어지는 경우는 없다.
 '''
 
 # 출력
 '''
-
+출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 '''
+
+def push(queue:list, num):
+    queue.append(None)
+    for i in range(len(queue)-1,0,-1):
+        queue[i] = queue[i-1]
+    queue[0] = num
+    print(num)
+
+
+def pop(queue:list):
+    if len(queue) == 0:
+        print(-1)
+        return
+    data = queue.pop()
+    print(data)
+
+def size(queue:list):
+    print(len(queue))
+    
+def empty(queue:list):
+    if queue:
+        print(0)
+    else:
+        print(1)
+
+def front(queue:list):
+    if len(queue) == 0:
+        print(-1)
+    print(queue[len(queue)-1])
+
+def back(queue:list):
+    if len(queue) == 0:
+        print(-1)
+        return
+    print(queue[0])
+    
+N = int(input("N: "))
+
+queue = []
+
+for _ in range(N):
+    print("========================")
+    command_line = input("명령어 입력: ").split()
+    cmd = command_line[0]
+    
+    if cmd == 'push':
+        push(queue, int(command_line[1]))
+    elif cmd == 'pop':
+        pop(queue)
+    elif cmd == 'front':
+        front(queue)
+    elif cmd == 'back':
+        back(queue)
+    elif cmd == 'empty':
+        empty(queue)
+    elif cmd == 'size':
+        size(queue)
