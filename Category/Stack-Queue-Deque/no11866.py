@@ -21,3 +21,28 @@ N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 �
 '''
 예제와 같이 요세푸스 순열을 출력한다.
 '''
+
+from collections import deque
+
+dq = deque()
+
+N, K = map(int, input("N, K: ").split())
+
+# 숫자로 이루어진 덱 생성(큐 역할을 수행할 것임)
+for i in range(1,N+1):
+    dq.append(i)
+
+# 반복적으로 순환하여 result리스트에 요세푸스 순열 입력
+result = []
+while True:
+    if not dq:
+        break
+    for _ in range(K-1):        # K번째 해당되지 않는 경우 좌측에서 추출하여 우측에 삽입
+        data = dq.popleft()     # 반대로 할경우 덱에 역순으로 접근하게 됨
+        dq.append(data)
+    turn = dq.popleft()
+    result.append(turn)
+
+# 요세푸스 순열 출력
+for element in result:
+    print(element, end=' ')
