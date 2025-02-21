@@ -41,4 +41,4 @@ for _ in range(N):
     elif a not in rainbow_dance and b in rainbow_dance:
         rainbow_dance.append(a)
 
-print(len(rainbow_dance))
+print(len(rainbow_dance)) 

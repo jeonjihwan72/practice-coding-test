@@ -46,4 +46,4 @@ word_list.sort(key=lambda x: len(x))
 
 print("===== 완성된 단어장 =====")
 for word in word_list:
-    print(word)
+    print(word) 

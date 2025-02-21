@@ -47,4 +47,4 @@ for _ in range(N):
 gomgom_count += len(hello_list)
 
 print("=============================")
-print(gomgom_count)
+print(gomgom_count) 
