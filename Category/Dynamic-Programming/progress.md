@@ -1,3 +1,3 @@
 https://www.acmicpc.net/step/16
 
-8번부터
+10번부터
