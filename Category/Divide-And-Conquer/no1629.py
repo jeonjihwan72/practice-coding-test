@@ -40,6 +40,8 @@ print(exponentiation(A, B, C))
 # 분할 정복을 이용한 거듭제곱 (빠른 거듭제곱, Exponentiation by Squaring)
 '''
 (A^B) mod C = 
-| (((A^(B//2)) mod C) ^ 2) mod C
-|
+| (((A^(B//2)) mod C) ^ 2) mod C    (B가 짝수일 때)
+| (((A^(B-2)) mod C) * A) mod C    (B가 홀수일 때)
 '''
+# 재귀를 이용하여 계산하므로 큰 수 A와 B의 곱으로 오버플로우가 발생하지 않고
+# 시간 복잡도가 O(log B)로 줄어든다.
