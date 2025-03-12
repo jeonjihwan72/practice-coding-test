@@ -22,3 +22,21 @@
 입력에서 0이 주어진 횟수만큼 답을 출력한다.
 만약 배열이 비어있는 경우인데 가장 큰 값을 출력하라고 한 경우에는 0을 출력하면 된다.
 '''
+
+import heapq
+
+def max_heap():
+    n = int(input().strip())  # 연산 개수
+    heap = []
+
+    for _ in range(n):
+        x = int(input().strip())
+
+        if x > 0:  # 자연수 입력 → 최대 힙에 삽입 (음수로 변환하여 저장)
+            heapq.heappush(heap, -x)
+        elif heap:  # 0 입력 → 최대 힙에서 가장 큰 값 출력
+            print(-heapq.heappop(heap))
+        else:  # 0 입력 but 힙이 비어 있음 → 0 출력
+            print(0)
+
+max_heap()
