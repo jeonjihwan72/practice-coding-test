@@ -16,6 +16,11 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, C!\n");
+   
+    int A, B; // 변수 선언
+    scanf("%d %d", &A, &B);
+    int C = A + B;
+    printf("%d",C);
+
     return 0;
 }
