@@ -24,6 +24,7 @@ class Solution(object):
         # return result
 
         result = ""
+        # 사전식 오름차순으로 정렬되므로 처음과 끝이 서로 어두가 동일하다면 그 사이의 단어들도 같음을 보장한다.
         strs.sort()
         
         first = strs[0]
